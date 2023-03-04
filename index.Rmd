@@ -3,84 +3,91 @@ title: "A3: SPL Library Checkouts"
 output: html_document
 ---
 
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+    library(dplyr)
+    library(ggplot2)
+
+    all_checkouts <- read.csv("2013-2023-5-Checkouts-SPL.csv", stringsAsFactors = FALSE)
+    
+    source('summary.R')
+    source('chart1_example.R')
+    source('chart2_example.R')
+```
+
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+This data was given by the Seattle Public library and the books I am going to analyze is the Harry Potter collection of books/ other books written by J.K. Rowling because they are classic books and the author has went through some controversy so I wanted to see if people stil were interested in JK Rowling and her books or if her worked was getting silenced over time. 
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+J.K. Rowling was one of my favorite authors growing up, and reading Harry Potter was one of the most exciting parts of my childhood life. Overtime it is no surprise that the author I used to love has been caught up in huge amounts of controversy, but I wanted to see if this had any negative impart towards the people that loved her books. The statistics would argue that J.K. Rowling has only gotten bigger as an Author, in 2022 the amount of checkouts for J.K. Rowling was at 13,934 checkouts and this argument makes sense because the lowest amount of checkouts was in 2014 and that number was 7,895. Another analysis I wanted to make was if the material of J.K. Rowling books were being checked out in the traditional hard copy that I loved as a kid. in 2020 the amount of checkouts from the SPL that were actual books were 2,174. This is still a high amount of checkouts but audiobooks have actually taken over especially for this author. The amount of checkouts that were audiobooks for 2020 was 8,924. This disparity really surprised me but the world is changing everyday. The last topic I wanted to cover was the checkout numbers especially during early covid-19 times, because everyone was at home and had a lot of free time. After looking at the data and graph 2020 was the peak of checkouts for J.K. Rowling and that was 21,629 checkouts. This made sense to me because there was a lot more time to read those big books by J.K. Rowling. 
 
 ### The Dataset
 
 - Who collected/published the data?  
+
+Seattle Public Library is the one who collected/published the data 
+
+
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
+
+the dataset includes over 20 million individual checkout records, covering a wide range of materials, including books, DVDs, audiobooks, and digital resources. The dataset provides information on each item's title, author, format, and checkout date, as well as the library branch where the item was checked out. The data also includes information on the number of times each item has been checked out, which can be used to identify popular titles or authors and track usage patterns over time. 
+
+
 - How was the data collected or generated?  
+
+The Seattle Public Library data is collected using a software system that keeps track of the items people borrow from the library. This data is then made available on the library's website for anyone to use. The data includes information on millions of books, DVDs, audiobooks, and other materials borrowed from the library since 2005.
+
+
 - Why was the data collected?  
+
+There was many different reasons why the data is collected. First, the data helps the library staff to manage their collections effectively by providing information on which items are being checked out and which items may need to be reordered or replaced. This data can also help the library to make decisions about which types of materials to purchase or which services to offer to meet the needs of library users.
+
+Secondly, the data on library circulation can be used to understand how library users interact with the library and which types of materials and resources are most popular. This information can help the library to improve its services and collections to better serve the needs of its users.
+
+The final reason I can think of is the data on library circulation can be a valuable resource for researchers and analysts who are interested in understanding broader trends in library usage and reading habits. The Seattle Public Library makes this data available on its Open Data Portal to encourage its use for research and analysis by anyone who is interested in understanding how libraries are used and the impact they have on their communities.
+
+
 - What, if any, ethical questions do you need to consider when working with this data?  
+
+The ethical questions that I needed to consider when working with this data is working with data from the Seattle Public Library it requires a thoughtful and ethical approach that takes into account the privacy and rights of library users, the potential for bias or discrimination. 
+
+
 - What are possible limitations or problems with this data?   (at least 200 words)
+
+First, it is important to note that the SPL data only includes information about library users who have chosen to use their library card when checking out materials or accessing online resources. This means that the data may not accurately represent the entire population of library users or the types of materials and resources they are accessing. For example, individuals who primarily use the library for in-person services or who do not have a library card may not be represented in the data.
+Another potential limitation of the SPL data is that it may not provide a complete picture of library usage patterns over time. For example, changes in library policies or services may impact how users interact with the library, but these changes may not be reflected in the data. Similarly, shifts in demographic trends or the availability of alternative resources may also impact library usage patterns but may not be captured by the data.
+There is also the possibility of data quality issues or errors, such as missing or incomplete data, data entry errors, or inconsistencies in how data is recorded over time. These issues can impact the accuracy and reliability of analyses conducted using the data.
+Lastly, it is important to recognize that the SPL data may be subject to privacy concerns and legal restrictions, particularly when it comes to personal information about library users. Researchers working with this data should take appropriate steps to ensure that they are following ethical and legal guidelines for data use and protection.
+
 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The reason I included this chart was because I wanted to see how the type of books have changed throughout the years and in particular I still wanted to see J.K. Rowlings data because as a child I loved the book version of Harry Potter and wanted to see if that was still the case in 2022. The chart showed that audiobooks are the most popular of the 4 groups while books and ebooks are pretty similar in populairty. I am pretty surprised that most people listen to J.K. Rowling compared to reading the books. 
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r chart 1}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+    print(chart1)
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The reason I wanted to show this chart was because I wanted to see if any particular month throughout the years has gained a lot of attention from J.K. Rowling and the results were pretty surprising. Overall the chart is pretty similar throughout the years and months, but in 2020 from March until July the amount of checkouts during this time were increased by a huge margin. This is a just another example of the where the Coronavirus could have had an effect on these statistics. 
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r chart 2}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+    print(chart2)
 ```
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+The chart that I chose for my last plot was a bar plot. I wanted to see how many the checkouts have changed throughout the years so see if there was a drastic change. I was expecting for the numbers to decrease over the years but after looking at the data and the bar plot I can say that throughout time the checkouts have increased especially compared to 2013-2015. 2020 was the peak of checkouts for J.K. Rowling and this might have occured due to people being at home more and having more free time, but her books still have good checkout numbers in 2021-2022. 
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r bar 3}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+    print(bar3)
 ```
 
 

@@ -1,6 +1,9 @@
-x_values <- seq(1, 3)
-y_values <- seq(1,3)
-
+source('Summary.R')
 library(ggplot2)
-ggplot() +
-  geom_line(aes(x=x_values, y = y_values))
+
+chart1 <- ggplot(data=rowling_by_material,
+       aes(x=CheckoutYear, y=total_checkout, colour=MaterialType)) +
+  geom_line()+
+  labs(title = "J.K. Rowling Checkouts by Type of Book Over the Years", x = "Year of Checkout", y = "Amount of Checkouts", colour = "Type of Book") +
+  scale_x_continuous(breaks = ~ axisTicks(., log = FALSE))
+
